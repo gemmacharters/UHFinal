@@ -233,6 +233,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ThreadList.aspx" />
+    <Content Include="UserPics\minion1.GIF" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -408,6 +409,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Artwork\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
