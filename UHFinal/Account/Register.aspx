@@ -45,8 +45,28 @@
             </div>
         </div>
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="UserPicture" CssClass="col-md-2 control-label">Upload your user picture</asp:Label>
+            <div class="col-md-10">
+                <asp:FileUpload runat="server" ID="UserPicture" CssClass="form-control" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="userStatus" CssClass="col-md-2 control-label">Do you want to upload Artwork? If so check this box and once approved you will be able to do this.</asp:Label>
+            <div class="col-md-10">
+                <asp:CheckBox ID="userStatus" runat="server" CssClass="form-control" AutoPostBack="true" Checked=false OnCheckedChanged="userStatus_CheckedChanged" />
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="ArtistIntro" CssClass="col-md-2 control-label" ID="lblInfo" Visible="True">Please enter information about yourself as an artist</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" />
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Label ID="lblError" runat="server"></asp:Label>
             </div>
         </div>
     </div>

@@ -80,7 +80,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+            <footer style="clear:both">
                 <p>&copy; <%: DateTime.Now.Year %> COLC</p>
             </footer>
         </div>
