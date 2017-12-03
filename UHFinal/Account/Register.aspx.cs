@@ -16,14 +16,27 @@ namespace UHFinal.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = UserName.Text };
+            var user = new ApplicationUser() { UserName = UserName.Text, Email = Email.Text };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
 
                 //Insert a UserAccount record to save the additional details.
                 //Also sets the userStatus. AP or UP, Artist Pending or User Pending
+                string fileUp = UserPicture.FileName;
+                string ArtworkFolder = Server.MapPath("/userPics");
+                if (UserPicture.HasFile)
+                {
+                    try
+                    {
+                        UserPicture.SaveAs(ArtworkFolder + "/" + fileUp);
 
+                    }
+                    catch (Exception ex)
+                    {
+                        lblError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    }
+                }
                 string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 SqlCommand insert = new SqlCommand("insert into userAccount(UserID, userStatus, UserPicture, ArtistIntro) " +
@@ -51,6 +64,7 @@ namespace UHFinal.Account
                 conn.Close();
 
 
+
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
@@ -59,20 +73,6 @@ namespace UHFinal.Account
             else 
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
-        }
-
-        protected void userStatus_CheckedChanged(object sender, EventArgs e)
-        {
-            if (userStatus.Checked == true)
-            {
-                ArtistIntro.Visible = true;
-                lblInfo.Visible = true;
-            }
-            else
-            {
-                ArtistIntro.Visible = false;
-                lblInfo.Visible = false;
             }
         }
     }

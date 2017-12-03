@@ -186,7 +186,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="AddArtwork.aspx" />
     <Content Include="ArtistList.aspx" />
+    <Content Include="ArtworkDetail.aspx" />
+    <Content Include="ArtworkList.aspx" />
     <Content Include="ArtworkSearch.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -347,6 +350,13 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddArtwork.aspx.cs">
+      <DependentUpon>AddArtwork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddArtwork.aspx.designer.cs">
+      <DependentUpon>AddArtwork.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -357,6 +367,20 @@
     </Compile>
     <Compile Include="ArtistList.aspx.designer.cs">
       <DependentUpon>ArtistList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtworkDetail.aspx.cs">
+      <DependentUpon>ArtworkDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtworkDetail.aspx.designer.cs">
+      <DependentUpon>ArtworkDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ArtworkList.aspx.cs">
+      <DependentUpon>ArtworkList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtworkList.aspx.designer.cs">
+      <DependentUpon>ArtworkList.aspx</DependentUpon>
     </Compile>
     <Compile Include="ArtworkSearch.aspx.cs">
       <DependentUpon>ArtworkSearch.aspx</DependentUpon>

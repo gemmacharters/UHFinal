@@ -54,13 +54,14 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="userStatus" CssClass="col-md-2 control-label">Do you want to upload Artwork? If so check this box and once approved you will be able to do this.</asp:Label>
             <div class="col-md-10">
-                <asp:CheckBox ID="userStatus" runat="server" CssClass="form-control" AutoPostBack="true" Checked=false OnCheckedChanged="userStatus_CheckedChanged" />
+                <asp:CheckBox ID="userStatus" runat="server" CssClass="form-control" Checked=false />
+
             </div>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ArtistIntro" CssClass="col-md-2 control-label" ID="lblInfo" Visible="True">Please enter information about yourself as an artist</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" />
+                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" Height="121px" Width="402px" />
             </div>
         </div>
         <div class="form-group">

@@ -20,7 +20,7 @@ namespace UHFinal.Account
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
+            } 
         }
 
         protected void LogIn(object sender, EventArgs e)

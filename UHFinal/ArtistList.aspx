@@ -11,6 +11,8 @@
                 <HeaderStyle Font-Bold="True" Font-Size="Larger" />
                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="100px" />
                 </asp:BoundField>
+
+
                 <asp:ImageField DataImageUrlField="UserPicture">
                     <ControlStyle CssClass="img-thumbnail" />
                     <ItemStyle Height="100px" Width="100px" />
