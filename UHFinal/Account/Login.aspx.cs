@@ -38,7 +38,9 @@ namespace UHFinal.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        Session["UserId"] = User.Identity.GetUserId();
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
@@ -55,7 +57,9 @@ namespace UHFinal.Account
                         ErrorMessage.Visible = true;
                         break;
                 }
+
             }
+
         }
     }
 }

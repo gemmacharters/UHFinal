@@ -6,9 +6,9 @@
         <p class="lead" style="clear:both">Artwork Detail</p>
     </div>
 
-    <p>&nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:defaultConnection %>" SelectCommand="SELECT [UserID], [UserName], [UserPicture] FROM [User] WHERE ([UserID] = @UserID)">
+    <p>&nbsp;<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:defaultConnection %>" SelectCommand="SELECT UserAccount.UserStatus, UserAccount.UserPicture, UserAccount.UserID, UserAccount.ArtistIntro, AspNetUsers.UserName FROM AspNetUsers INNER JOIN UserAccount ON AspNetUsers.Id = UserAccount.UserID; WHERE ([AspNetUsers.Id] = @UserID)">
             <SelectParameters>
-                <asp:Parameter DefaultValue="1" Name="UserID" Type="Int32" />
+                <asp:QueryStringParameter Name="UserID" QueryStringField="UserID" />
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BorderColor="White" BorderStyle="None" DataKeyNames="UserID" DataSourceID="SqlDataSource1" GridLines="None" HorizontalAlign="Left">

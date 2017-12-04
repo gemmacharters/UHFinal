@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using Microsoft.AspNet.Identity;
 
 namespace UHFinal
 {
@@ -18,6 +19,7 @@ namespace UHFinal
         {
             string fileUp = fupArtwork.FileName;
             string ArtworkFolder = Server.MapPath("/Artwork");
+            string userId = Session["UserID"].ToString();
             if (fupArtwork.HasFile)
             {
                 try
@@ -35,12 +37,13 @@ namespace UHFinal
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand insert = new SqlCommand("insert into Artwork(ArtName, ArtDescription, ArtworkPicture, UserID, CategoryID, LikesCount, UploadDate) " +
-                "values(@ArtName, @ArtDescription, @ArtworkPicture, 1, @CategoryID, 0, @UploadDate) SELECT SCOPE_IDENTITY()", conn);
+                "values(@ArtName, @ArtDescription, @ArtworkPicture, @UserID, @CategoryID, 0, @UploadDate) SELECT SCOPE_IDENTITY()", conn);
             insert.Parameters.AddWithValue("@ArtName", txtArtName.Text);
             insert.Parameters.AddWithValue("@ArtDescription", txtArtDesc.Text);
             insert.Parameters.AddWithValue("@ArtworkPicture", "Artwork/" + fupArtwork.FileName);
             insert.Parameters.AddWithValue("@CategoryID", txtCategoryID.Text);
             insert.Parameters.AddWithValue("@UploadDate", DateTime.Now);
+            insert.Parameters.AddWithValue("@userID", userId);
             try
             {
                 conn.Open();

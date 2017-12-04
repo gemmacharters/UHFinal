@@ -39,7 +39,6 @@ C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\WebGrease.dll
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\System.Web.Optimization.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Antlr3.Runtime.pdb
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AspNet.FriendlyUrls.xml
-C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Newtonsoft.Json.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\EntityFramework.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\EntityFramework.SqlServer.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AspNet.Identity.Core.xml

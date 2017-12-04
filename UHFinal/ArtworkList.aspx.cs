@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace UHFinal
 {
@@ -13,14 +14,6 @@ namespace UHFinal
         {
 
         }
-        protected void btnReset_Click(object sender, EventArgs e)
-        {
-            txtSearch.Text = "";
-            SqlDataSource2.FilterExpression = null;
-        }
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
