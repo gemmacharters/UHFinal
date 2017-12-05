@@ -27,9 +27,9 @@ namespace UHFinal.Account
         {
             if (IsValid)
             {
-                // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+                ApplicationUser user = signinManager.UserManager.FindByNameAsync(UserName.Text).Result;
 
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
@@ -38,9 +38,8 @@ namespace UHFinal.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Session["UserId"] = User.Identity.GetUserId();
+                        Session["UserId"] = user.Id;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
@@ -48,8 +47,7 @@ namespace UHFinal.Account
                     case SignInStatus.RequiresVerification:
                         Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
                                                         Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
+                                                        RememberMe.Checked), true);
                         break;
                     case SignInStatus.Failure:
                     default:

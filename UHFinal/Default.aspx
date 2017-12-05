@@ -3,12 +3,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <p style="clear:both">This website is for the City of Liverpool College UAL Character Art students. 
-            Once registered you will be able to upload up to 10 pieces of artwork. 
-            These can be liked, rated and commented on by other students and visitors to the site. 
-            This is a prototype version of the site. </p>
-        <a href="ArtworkList.aspx">Artwork List for User1</a>
-        
+        <p>This website is for the City of Liverpool College UAL Character Art students. 
+            Once registered as an artist you will be able to upload up to 10 pieces of artwork. 
+            These can be liked, rated and commented on by other students and visitors to the site.This is a prototype version of the site. </p>
     </div>
     
     <div class="row">

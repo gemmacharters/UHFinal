@@ -20,7 +20,7 @@ namespace UHFinal.Account
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
-
+                Session["UserId"] = user.Id.ToString();
                 //Insert a UserAccount record to save the additional details.
                 //Also sets the userStatus. AP or UP, Artist Pending or User Pending
                 string fileUp = UserPicture.FileName;

@@ -41,7 +41,7 @@ namespace UHFinal
             insert.Parameters.AddWithValue("@ArtName", txtArtName.Text);
             insert.Parameters.AddWithValue("@ArtDescription", txtArtDesc.Text);
             insert.Parameters.AddWithValue("@ArtworkPicture", "Artwork/" + fupArtwork.FileName);
-            insert.Parameters.AddWithValue("@CategoryID", txtCategoryID.Text);
+            insert.Parameters.AddWithValue("@CategoryID", int.Parse(txtCategoryID.Text));
             insert.Parameters.AddWithValue("@UploadDate", DateTime.Now);
             insert.Parameters.AddWithValue("@userID", userId);
             try
