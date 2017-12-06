@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Caching;
+
 
 namespace UHFinal
 {
@@ -19,7 +22,7 @@ namespace UHFinal
         {
             string fileUp = fupArtwork.FileName;
             string ArtworkFolder = Server.MapPath("/Artwork");
-            string userId = Session["UserID"].ToString();
+            string userId = Session["UserID"].ToString(); 
             if (fupArtwork.HasFile)
             {
                 try
@@ -36,23 +39,38 @@ namespace UHFinal
 
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
-            SqlCommand insert = new SqlCommand("insert into Artwork(ArtName, ArtDescription, ArtworkPicture, UserID, CategoryID, LikesCount, UploadDate) " +
+            SqlCommand artworkInsert = new SqlCommand("insert into Artwork(ArtName, ArtDescription, ArtworkPicture, UserID, CategoryID, LikesCount, UploadDate) " +
                 "values(@ArtName, @ArtDescription, @ArtworkPicture, @UserID, @CategoryID, 0, @UploadDate) SELECT SCOPE_IDENTITY()", conn);
-            insert.Parameters.AddWithValue("@ArtName", txtArtName.Text);
-            insert.Parameters.AddWithValue("@ArtDescription", txtArtDesc.Text);
-            insert.Parameters.AddWithValue("@ArtworkPicture", "Artwork/" + fupArtwork.FileName);
-            insert.Parameters.AddWithValue("@CategoryID", int.Parse(txtCategoryID.Text));
-            insert.Parameters.AddWithValue("@UploadDate", DateTime.Now);
-            insert.Parameters.AddWithValue("@userID", userId);
+            SqlCommand hashtagInsert = new SqlCommand("insert into ARHashtag (ArtworkID, HID) values(@ArtworkID, @HID", conn);
+            artworkInsert.Parameters.AddWithValue("@ArtName", txtArtName.Text);
+            artworkInsert.Parameters.AddWithValue("@ArtDescription", txtArtDesc.Text);
+            artworkInsert.Parameters.AddWithValue("@ArtworkPicture", "Artwork/" + fupArtwork.FileName);
+            artworkInsert.Parameters.AddWithValue("@CategoryID", lstCategory.SelectedValue);
+            artworkInsert.Parameters.AddWithValue("@UploadDate", DateTime.Now);
+            artworkInsert.Parameters.AddWithValue("@userID", userId);
             try
             {
                 conn.Open();
-                object returnObj = insert.ExecuteScalar();
+                object returnObj = artworkInsert.ExecuteScalar();
 
                 int newid = -1;
                 if (returnObj != null)
                 {
                     int.TryParse(returnObj.ToString(), out newid);
+                    //add hashtags
+                    hashtagInsert.Parameters.AddWithValue("@ArtworkID", newid);
+                    int i = 0;
+                    for (i = 0; i <= chkHashtag.Items.Count - 1; i++)
+                    {
+                        if (chkHashtag. = true)
+                        {
+                            inputvalue = CheckBoxList1.Items[I].Text;
+                            qry = "INSERT INTO ItemsTable (itemnames) VALUES ('" + inputvalue + "')";
+                            SqlCommand cmd = new SqlCommand(qry, conn);
+                            cmd.ExecuteNonQuery();
+
+                        }
+                    }
                 }
                 lblError.Text = "Artwork Added " + newid;
                 Response.Redirect("~/ArtworkDetail.aspx?ArtworkID=" + newid);

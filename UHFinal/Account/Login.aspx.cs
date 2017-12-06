@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using UHFinal.Models;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Caching;
 
 namespace UHFinal.Account
 {
@@ -38,7 +40,8 @@ namespace UHFinal.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Session["UserId"] = user.Id;
+                        Session["UserId"] = user.Id.ToString();
+                        Session["UserName"] = UserName.Text;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
