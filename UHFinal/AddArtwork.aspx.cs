@@ -16,7 +16,6 @@ namespace UHFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -28,20 +27,17 @@ namespace UHFinal
                 try
                 {
                     fupArtwork.SaveAs(ArtworkFolder + "/" + fileUp);
-
                 }
                 catch (Exception ex)
                 {
                     lblError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
             }
-
-
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand artworkInsert = new SqlCommand("insert into Artwork(ArtName, ArtDescription, ArtworkPicture, UserID, CategoryID, LikesCount, UploadDate) " +
                 "values(@ArtName, @ArtDescription, @ArtworkPicture, @UserID, @CategoryID, 0, @UploadDate) SELECT SCOPE_IDENTITY()", conn);
-            SqlCommand hashtagInsert = new SqlCommand("insert into ARHashtag (ArtworkID, HID) values(@ArtworkID, @HID", conn);
+            
             artworkInsert.Parameters.AddWithValue("@ArtName", txtArtName.Text);
             artworkInsert.Parameters.AddWithValue("@ArtDescription", txtArtDesc.Text);
             artworkInsert.Parameters.AddWithValue("@ArtworkPicture", "Artwork/" + fupArtwork.FileName);
@@ -54,32 +50,33 @@ namespace UHFinal
                 object returnObj = artworkInsert.ExecuteScalar();
 
                 int newid = -1;
+                int HashtagID = 0;
                 if (returnObj != null)
                 {
                     int.TryParse(returnObj.ToString(), out newid);
                     //add hashtags
-                    hashtagInsert.Parameters.AddWithValue("@ArtworkID", newid);
                     int i = 0;
                     for (i = 0; i <= chkHashtag.Items.Count - 1; i++)
                     {
-                        if (chkHashtag. = true)
+                        if (chkHashtag.Items[i].Selected)
                         {
-                            inputvalue = CheckBoxList1.Items[I].Text;
-                            qry = "INSERT INTO ItemsTable (itemnames) VALUES ('" + inputvalue + "')";
-                            SqlCommand cmd = new SqlCommand(qry, conn);
-                            cmd.ExecuteNonQuery();
-
+                            HashtagID = int.Parse(chkHashtag.Items[i].Value);
+                            SqlCommand hashtagInsert = new SqlCommand("insert into ARHashtag (ArtworkID, HID) values(" + newid + ", " + HashtagID + ")", conn);
+                            hashtagInsert.ExecuteNonQuery();
                         }
                     }
+                    string sqlCmd = "insert into Thread (Title, ThreadComment, ArtworkID, UserID) values('" +
+                                                                txtArtName.Text + "', 'New Artwork Added, please comment', " + newid + ", '" + userId + "')";
+                    SqlCommand threadInsert = new SqlCommand(sqlCmd, conn);
+                    threadInsert.ExecuteNonQuery();
+                    conn.Close();
                 }
                 lblError.Text = "Artwork Added " + newid;
                 Response.Redirect("~/ArtworkDetail.aspx?ArtworkID=" + newid);
-
             }
             catch (Exception ex)
             {
                 lblError.Text = "Error: " + ex.Message;
-
                 conn.Close();
             }
         }

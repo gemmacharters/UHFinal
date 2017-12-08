@@ -33,15 +33,18 @@ namespace UHFinal.Account
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
                 ApplicationUser user = signinManager.UserManager.FindByNameAsync(UserName.Text).Result;
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
+                // user name has been implemented to identify the user and retrieve the Id from the AspNetUsers
+                // A row is added to the UserAccount table which uses the Id field as a foreign key
+
                 var result = signinManager.PasswordSignIn(UserName.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
 
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        // Session variables are set so that the Id can be used without additional calls to the database
                         Session["UserId"] = user.Id.ToString();
                         Session["UserName"] = UserName.Text;
+
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
