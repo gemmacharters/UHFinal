@@ -16,12 +16,13 @@ namespace UHFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userId = User.Identity.GetUserId();
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string fileUp = fupArtwork.FileName;
             string ArtworkFolder = Server.MapPath("/Artwork");
-            string userId = Session["UserID"].ToString(); 
+            string userId = User.Identity.GetUserId(); 
             if (fupArtwork.HasFile)
             {
                 try

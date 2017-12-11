@@ -199,3 +199,4 @@ C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.Extensions.Options.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.Extensions.Primitives.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\System.Text.Encodings.Web.xml
+C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Newtonsoft.Json.xml

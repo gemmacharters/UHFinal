@@ -32,18 +32,23 @@ namespace UHFinal
             SqlCommand ThreadSelect = new SqlCommand("SELECT Thread.Id, Thread.Title, Thread.ThreadComment, AspNetUsers.UserName, Thread.ArtworkID, " + 
                 "Thread.UserID, Artwork.ArtworkPicture FROM Thread INNER JOIN AspNetUsers ON Thread.UserID = AspNetUsers.Id " + 
                 "LEFT OUTER JOIN Artwork ON Thread.ArtworkID = Artwork.ArtworkID AND AspNetUsers.Id = Artwork.UserID", conn);
+
             using (SqlDataAdapter sda = new SqlDataAdapter())
             {
                 sda.SelectCommand = ThreadSelect;
+                conn.Open();
+                object returnObj = ThreadSelect.ExecuteNonQuery();
                 using (DataTable dt = new DataTable())
                 {
                     sda.Fill(dt);
+                    gvThreads.DataSource = dt;
+                    gvThreads.DataBind();
                 }
             }
 
 
-                conn.Open();
-            object returnObj = ThreadSelect.ExecuteNonQuery();
+                
+            
         }
     }
 }
