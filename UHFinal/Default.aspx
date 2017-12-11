@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image:url(/images/malehead.gif)">
         <p>This website is for the City of Liverpool College UAL Character Art students. 
             Once registered as an artist you will be able to upload up to 10 pieces of artwork. 
             These can be liked, rated and commented on by other students and visitors to the site.This is a prototype version of the site. </p>

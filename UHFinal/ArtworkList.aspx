@@ -35,7 +35,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Artwork">
                     <ItemTemplate>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' Target="_blank">
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' >
                     <img src='<%# Eval("ArtworkPicture") %>'  alt="Artwork Picture" class="img-thumbnail"/>
                     </asp:HyperLink>
                 </ItemTemplate>

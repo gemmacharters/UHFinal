@@ -9,14 +9,14 @@
         <Columns>
             <asp:TemplateField HeaderText="Threads">
                 <ItemTemplate>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# "PostList.aspx?ThreadID=" + Eval("Id") %>' Target="_blank" Text="View Posts">
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "PostList.aspx?ThreadID=" + Eval("Id") %>' Text="View Posts">
                     </asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' Target="_blank">
-                    <img src='<%# Eval("ArtworkPicture") %>'  alt="Artwork Picture" class="img-thumbnail"/>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' ">
+                    <img src='<%# Eval("ArtworkPicture") %>'  alt="Artwork Picture" class="img-thumbnail" style="width:100px;height:auto;"/>
                     </asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>

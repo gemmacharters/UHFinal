@@ -31,12 +31,21 @@
             </ItemTemplate>
         </asp:FormView>
         </div>
+        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <div class ="well well-sm">
+            <div class="row">
+                <div class="col-md-2">Artwork Name</div>
+                <div class="col-md-8"><asp:TextBox ID="txtPostComment" runat="server" Width="600px"></asp:TextBox></div>
+                <div class="col-md-3"><asp:Button ID="btnPost" runat="server" OnClick="btnPost_Click"></asp:Button></div> 
+            </div>
+        </div>
+
         <div>
         <asp:GridView ID="gvPosts" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlPosts" AllowSorting="True" AllowPaging="True">
             <Columns>
                 
                 <asp:BoundField DataField="PostComment" HeaderText="Post Comment" SortExpression="PostComment">
-                <ItemStyle Width="200px" />
+                <ItemStyle Width="600px" />
                 </asp:BoundField>
                 <asp:BoundField DataField="PostAdded" HeaderText="Post Added On" SortExpression="PostAdded" > </asp:BoundField>
                 <asp:BoundField DataField="UserName" HeaderText="Post Added By" SortExpression="userName" >

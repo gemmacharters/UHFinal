@@ -509,6 +509,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Artwork\" />
+    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

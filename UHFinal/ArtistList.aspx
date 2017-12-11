@@ -9,7 +9,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Artist Picture">
                     <ItemTemplate>
-                        <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkList.aspx?userId=" + Eval("UserID") %>' Target="_blank">
+                        <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkList.aspx?userId=" + Eval("UserID") %>' >
                             <img src='<%# Eval("UserPicture") %>'  alt="Artist Picture" class="img-thumbnail"/>
                         </asp:HyperLink>
                     </ItemTemplate>
