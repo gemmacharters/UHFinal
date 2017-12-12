@@ -30,7 +30,7 @@
         <div class="col-md-4">
             <h2>Search for artwork</h2>
             <p>
-                The search facility allows you to look  for work you are interested in, by entering keywords and hashtags
+                The search facility allows you to look for work you are interested in, by entering keywords and hashtags.
             </p>
             <p>
                 <a class="btn btn-default" href="ArtworkSearch.aspx">Search Here &raquo;</a>

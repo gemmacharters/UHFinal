@@ -13,15 +13,6 @@ namespace UHFinal {
     public partial class ArtworkDetail {
         
         /// <summary>
-        /// SqluserAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqluserAccount;
-        
-        /// <summary>
         /// SqlArtwork control.
         /// </summary>
         /// <remarks>
@@ -49,39 +40,21 @@ namespace UHFinal {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlArtworkThread;
         
         /// <summary>
-        /// fvUser control.
+        /// chkLike control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvUser;
+        protected global::System.Web.UI.WebControls.CheckBox chkLike;
         
         /// <summary>
-        /// gvArtwork control.
+        /// fvArtwork control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvArtwork;
-        
-        /// <summary>
-        /// dlHashtags control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlHashtags;
-        
-        /// <summary>
-        /// lvPosts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvPosts;
+        protected global::System.Web.UI.WebControls.FormView fvArtwork;
     }
 }
