@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ArtworkDetail.aspx.cs" Inherits="UHFinal.ArtworkDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <p">Artwork Details are shown below, with hashtags and comments.</p>
+        <p">Artwork Details are shown below, with hashtags and comments. Click on the artwork to like and post comments</p>
     </div>
     <%--Data sources--%>
     
     <asp:SqlDataSource ID="SqlArtwork" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" 
-        SelectCommand="SELECT Artwork.ArtName, Artwork.ArtDescription, Artwork.ArtworkPicture, Artwork.LikesCount, Category.CategoryName, Artwork.ArtworkID, Artwork.UploadDate, Artist.UserName, Artist.UserPicture FROM Artwork INNER JOIN Category ON Artwork.CategoryID = Category.CategoryID INNER JOIN Artist ON Artwork.ArtworkID = Artist.ArtworkID WHERE (Artwork.ArtworkID = @ArtworkID)">
+        SelectCommand="SELECT ArtworkDetail.ArtName, ArtworkDetail.ArtDescription, ArtworkDetail.ArtworkPicture, ArtworkDetail.CategoryName, 
+        ArtworkDetail.ArtworkID, ArtworkDetail.UploadDate, ArtworkDetail.UserName, ArtworkDetail.UserPicture, LikesCount.CountOf FROM ArtworkDetail 
+        LEFT OUTER JOIN LikesCount ON ArtworkDetail.ArtworkID = LikesCount.ArtworkID 
+        WHERE (ArtworkDetail.ArtworkID = @ArtworkID)">
             <SelectParameters>
                 <asp:QueryStringParameter Name="ArtworkID" QueryStringField="ArtworkID" />
             </SelectParameters>
@@ -27,6 +30,7 @@
     
     <%--Artwork List--%>
     <div class="container-fluid">
+    
     <p><asp:CheckBox ID="chkLike" runat="server" AutoPostBack="true" Text="Like?" OnCheckedChanged="chkLike_CheckedChanged"/></p>
     <asp:FormView ID="fvArtwork" runat="server" DataSourceID="SqlArtwork" Width="800px">
         <ItemTemplate>
@@ -46,7 +50,7 @@
                                 <p>Description:  <%# Eval("ArtDescription") %></p>
                                 <p>Category:  <%# Eval("CategoryName") %></p>
                                 <p>Upload Date:  <%# Eval("UploadDate") %></p>
-                                <p>Likes:  <%# Eval("LikesCount") %></p>
+                                <p>Likes:  <%# Eval("CountOf") %></p>
                                 
                             </div>
                         </div>
@@ -82,3 +86,4 @@
     </asp:FormView>
     </div>
 </asp:Content>
+

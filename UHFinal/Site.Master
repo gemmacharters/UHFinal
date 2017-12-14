@@ -7,7 +7,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> COLC Character Art</title>
+    <script type='text/javascript' src='unitegallery/js/jquery-11.0.min.js'></script>	
+	<script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>	
 
+	<link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
+	
+	<script type='text/javascript' src='unitegallery/themes/tiles/ug-theme-tiles.js'></script>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -33,7 +38,7 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Name="WebFormsBundle" /> 
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>

@@ -3,18 +3,26 @@
     <div class="jumbotron">
         <p>Please select an artist and view their portfolio </p>   
     </div>
+    <style>
+    .imgScale {
+        width: 100px; /* You can set the dimensions to whatever you want */
+        height: 100px;
+        object-fit: cover;
+    }
+    </style>
      <asp:SqlDataSource ID="SqlArtistList" runat="server" ConnectionString="<%$ ConnectionStrings:defaultConnection %>" SelectCommand="SELECT UserAccount.UserStatus, UserAccount.UserPicture, UserAccount.UserID,UserAccount.ArtistIntro, AspNetUsers.UserName FROM AspNetUsers INNER JOIN UserAccount ON AspNetUsers.Id = UserAccount.UserID;"></asp:SqlDataSource>
      <div>
          <asp:GridView ID="gvArtistList" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="SqlArtistList" AllowSorting="True" AllowPaging="True">
             <Columns>
                 <asp:TemplateField HeaderText="Artist Picture">
                     <ItemTemplate>
-                        <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkList.aspx?userId=" + Eval("UserID") %>' >
-                            <img src='<%# Eval("UserPicture") %>'  alt="Artist Picture" class="img-thumbnail"/>
+                        <div>
+                        <asp:HyperLink  runat="server" NavigateUrl='<%# "ArtworkList.aspx?userId=" + Eval("UserID") %>' >
+                            <img  src='<%# Eval("UserPicture") %>'  alt="Artist Picture" class="imgScale"/>
                         </asp:HyperLink>
+                        </div>
                     </ItemTemplate>
-                    
-                    <ControlStyle Width="200px"></ControlStyle>
+
                     
                 </asp:TemplateField>
                 <asp:BoundField DataField="UserName" HeaderText="Artist Name" SortExpression="UserName">
@@ -22,9 +30,10 @@
                 </asp:BoundField>
                 <asp:BoundField DataField="ArtistIntro" HeaderText="Information">
 
-                <HeaderStyle HorizontalAlign="Center" />
+
                 </asp:BoundField>
             </Columns>
         </asp:GridView>
     </div>
+  
 </asp:Content>

@@ -256,11 +256,16 @@
     <Content Include="AddArtwork.aspx" />
     <Content Include="ArtistList.aspx" />
     <Content Include="ArtworkDetail.aspx" />
+    <Content Include="ArtworkGallery.aspx" />
     <Content Include="ArtworkList.aspx" />
     <Content Include="ArtworkSearch.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkbox-x.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\theme-krajee-flatblue.css" />
+    <Content Include="Content\ug-theme-default.css" />
+    <Content Include="Content\unite-gallery.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -273,14 +278,47 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="images\arrows_strip_left.png" />
+    <Content Include="images\arrows_strip_right.png" />
+    <Content Include="images\arrow_down_up.png" />
+    <Content Include="images\button_fullscreen.png" />
+    <Content Include="images\button_fullscreen_single.png" />
+    <Content Include="images\button_playpause.png" />
+    <Content Include="images\button_playpause_single.png" />
     <Content Include="PostList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-11.0.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ug-api.js" />
+    <Content Include="Scripts\ug-avia.js" />
+    <Content Include="Scripts\ug-carousel.js" />
+    <Content Include="Scripts\ug-common-libraries.js" />
+    <Content Include="Scripts\ug-functions.js" />
+    <Content Include="Scripts\ug-gallery.js" />
+    <Content Include="Scripts\ug-gridpanel.js" />
+    <Content Include="Scripts\ug-lightbox.js" />
+    <Content Include="Scripts\ug-loadmore.js" />
+    <Content Include="Scripts\ug-panelsbase.js" />
+    <Content Include="Scripts\ug-slider.js" />
+    <Content Include="Scripts\ug-sliderassets.js" />
+    <Content Include="Scripts\ug-strippanel.js" />
+    <Content Include="Scripts\ug-tabs.js" />
+    <Content Include="Scripts\ug-theme-default.js" />
+    <Content Include="Scripts\ug-theme-tiles.js" />
+    <Content Include="Scripts\ug-thumbsgeneral.js" />
+    <Content Include="Scripts\ug-thumbsgrid.js" />
+    <Content Include="Scripts\ug-thumbsstrip.js" />
+    <Content Include="Scripts\ug-tiledesign.js" />
+    <Content Include="Scripts\ug-tiles.js" />
+    <Content Include="Scripts\ug-touchslider.js" />
+    <Content Include="Scripts\ug-touchthumbs.js" />
+    <Content Include="Scripts\ug-video.js" />
+    <Content Include="Scripts\ug-zoomslider.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -443,6 +481,13 @@
     <Compile Include="ArtworkDetail.aspx.designer.cs">
       <DependentUpon>ArtworkDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ArtworkGallery.aspx.cs">
+      <DependentUpon>ArtworkGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtworkGallery.aspx.designer.cs">
+      <DependentUpon>ArtworkGallery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ArtworkList.aspx.cs">
       <DependentUpon>ArtworkList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -509,7 +554,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Artwork\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

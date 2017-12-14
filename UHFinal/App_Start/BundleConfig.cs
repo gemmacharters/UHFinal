@@ -20,6 +20,11 @@ namespace UHFinal
                             "~/Scripts/WebForms/GridView.js",
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
+                            "~/Scripts/unitegallery.min.js",
+                            "~/Scripts/ug-common-libraries.js",
+                            "~/Scripts/ug-theme-default.js",
+                            "~/Scripts/ug-theme-tiles.js",
+                            "~/Scripts/ug-gallery.js",
                             "~/Scripts/WebForms/WebParts.js"));
 
             // Order is very important for these files to work, they have explicit dependencies

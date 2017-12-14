@@ -25,8 +25,6 @@ namespace UHFinal
                 else
                 {
                     //if logged on compare logon ID with Artist User ID
-
-
                     string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
                     SqlConnection conn = new SqlConnection(connStr);
                     SqlCommand ArtistSelect = new SqlCommand("SELECT UserID FROM Artwork WHERE ArtworkID=@ArtworkID", conn);
@@ -51,7 +49,7 @@ namespace UHFinal
                     else
                     {
                         //if the logged on user has already liked the artwork
-                        SqlCommand LikeSelect = new SqlCommand("SELECT Id FROM Likes WHERE ArtworkID=@ArtworkID AND UserID=@LikeUserID", conn);
+                        SqlCommand LikeSelect = new SqlCommand("SELECT Id FROM Likes WHERE Likes.ArtworkID=@ArtworkID AND Likes.UserID=@LikeUserID", conn);
                         LikeSelect.Parameters.AddWithValue("LikeUserID", userId);
                         LikeSelect.Parameters.AddWithValue("ArtworkID", ArtworkID);
                         SqlDataReader drLS = LikeSelect.ExecuteReader();
