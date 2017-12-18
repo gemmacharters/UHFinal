@@ -4,7 +4,7 @@
 <style>
 		/* Dimensions set via css in MovingBoxes version 2.2.2+ */
 		#slider { width: 500px; }
-		#slider li { width: 250px; }
+		#slider li { width: 350px; }
 	</style>
 
 	<script>
@@ -16,8 +16,8 @@
 			panelWidth: 0.5,
 			*/
 			startPanel   : 1,      // start with this panel
-			wrap         : false,  // if true, the panel will infinitely loop
-			buildNav     : true,   // if true, navigation links will be added
+			wrap         : true,  // if true, the panel will infinitely loop
+			buildNav     : false,   // if true, navigation links will be added
 			navFormatter : function(){ return "&#9679;"; } // function which returns the navigation text for each panel
 		});
 
@@ -25,20 +25,21 @@
 	</script>
 
 
-    <asp:SqlDataSource ID="SqlArtwork" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ArtName], [ArtworkPicture] FROM [Artwork]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlArtwork" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ArtName], [ArtworkPicture], [ArtDescription],[ArtworkID] FROM [Artwork]"></asp:SqlDataSource>
         <div id="wrapper">
             <ul id="slider">
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlArtwork">
                 <ItemTemplate>
                     <li>
-                    <asp:HyperLink runat="server" NavigateUrl='#' >
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' >
                     <img src='<%# Eval("ArtworkPicture") %>' />
                     </asp:HyperLink>
+                        <h2><%# Eval("ArtName") %></h2>
+                        <p><%# Eval("ArtDescription") %></p>
                     </li>
                 </ItemTemplate>
             </asp:Repeater>
             </ul>
         </div>
-
 
 </asp:Content>

@@ -31,8 +31,10 @@
     <%--Artwork List--%>
     <div class="container-fluid">
     
-    <p><asp:CheckBox ID="chkLike" runat="server" AutoPostBack="true" Text="Like?" OnCheckedChanged="chkLike_CheckedChanged"/></p>
-    <asp:FormView ID="fvArtwork" runat="server" DataSourceID="SqlArtwork" Width="800px">
+    <p><asp:CheckBox ID="chkLike" runat="server" AutoPostBack="true" Text="<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span>" OnCheckedChanged="chkLike_CheckedChanged"/></p>
+    
+        
+        <asp:FormView ID="fvArtwork" runat="server" DataSourceID="SqlArtwork" Width="800px">
         <ItemTemplate>
                 <div class="row">
                     <div class="col-md-8">

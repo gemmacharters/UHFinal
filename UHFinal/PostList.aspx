@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PostList.aspx.cs" Inherits="UHFinal.PostList" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
-        <p>Postings are listed here. If you want to add a post please clcik the link below.
+        <p>Postings are listed here. If you want to add a post please click the link below.
         </p>
     </div>
     <asp:SqlDataSource ID="SqlThread" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" 
@@ -34,9 +34,9 @@
         <asp:Label ID="lblError" runat="server"></asp:Label>
         <div class ="well well-sm">
             <div class="row">
-                <div class="col-md-2">Artwork Name</div>
+                <div class="col-md-2">Post Comment</div>
                 <div class="col-md-8"><asp:TextBox ID="txtPostComment" runat="server" Width="600px"></asp:TextBox></div>
-                <div class="col-md-3"><asp:Button ID="btnPost" runat="server" OnClick="btnPost_Click"></asp:Button></div> 
+                <div class="col-md-3"><asp:Button ID="btnPost" runat="server" OnClick="btnPost_Click" Text="Post Comment"></asp:Button></div> 
             </div>
         </div>
 

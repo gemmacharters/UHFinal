@@ -1,40 +1,61 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="UHFinal._Default" %>
 
-<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div class="jumbotron" style="background-image:url(/images/malehead.gif)">
-        <p>This website is for the City of Liverpool College UAL Character Art students. 
-            Once registered as an artist you will be able to upload up to 10 pieces of artwork. 
-            These can be liked, rated and commented on by other students and visitors to the site.This is a prototype version of the site. </p>
-    </div>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server" >
     
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Artist List</h2>
+<style>
+		/* Dimensions set via css in MovingBoxes version 2.2.2+ */
+		#slider { width: 500px; }
+		#slider li { width: 350px; }
+	</style>
+
+	<script>
+	$(function(){
+
+		$('#slider').movingBoxes({
+			/* width and panelWidth options deprecated, but still work to keep the plugin backwards compatible
+			width: 500,
+			panelWidth: 0.5,
+			*/
+			startPanel   : 1,      // start with this panel
+			wrap         : true,  // if true, the panel will infinitely loop
+			buildNav     : false,   // if true, navigation links will be added
+			navFormatter : function(){ return "&#9679;"; } // function which returns the navigation text for each panel
+		});
+
+	});
+	</script>
+
+
+    <asp:SqlDataSource ID="SqlArtwork" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ArtName], [ArtworkPicture], [ArtDescription],[ArtworkID] FROM [Artwork]"></asp:SqlDataSource>
+    <div style="padding:5px">
+        <img src="images/list4.png" alt="banner" style="width:100%;height:auto;"/>
+    </div>
+    <div class="row" style="padding:10px" >
+        <div class="col-md-4" >
+            <h2>Welcome</h2>
             <p>
-                The talented Character Art students of the City Of Liverpool College would like to welcome you to our showcase website. Please browse the artists showcased here and view their work.
+                This website is for the City of Liverpool College UAL Character Art students. 
+            Once registered as an artist you will be able to upload up to 10 pieces of artwork. 
+            These can be liked, rated and commented on by other students and visitors to the site.This is a prototype version of the site.
             </p>
-            <p>
-                <a class="btn btn-default" href="ArtistList.aspx">View Artists &raquo;</a>
-            </p>
+            
         </div>
-        <div class="col-md-4">
-            <h2>Forum</h2>
-            <p>
-                As a registered user you can add a thread to our forum, or comment and post on existing threads.
-            </p>
-            <p>
-                <a class="btn btn-default" href="ThreadList.aspx">View Threads &raquo;</a>
-            </p>
+        <div class="col-md-8" style="padding-top:30px">
+            <div id="wrapper">
+            <ul id="slider">
+            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlArtwork">
+                <ItemTemplate>
+                    <li>
+                    <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>' >
+                    <img src='<%# Eval("ArtworkPicture") %>' />
+                    </asp:HyperLink>
+                        <h2><%# Eval("ArtName") %></h2>
+                        <p><%# Eval("ArtDescription") %></p>
+                    </li>
+                </ItemTemplate>
+            </asp:Repeater>
+            </ul>
         </div>
-        <div class="col-md-4">
-            <h2>Search for artwork</h2>
-            <p>
-                The search facility allows you to look for work you are interested in, by entering keywords and hashtags.
-            </p>
-            <p>
-                <a class="btn btn-default" href="ArtworkSearch.aspx">Search Here &raquo;</a>
-            </p>
         </div>
     </div>
 
