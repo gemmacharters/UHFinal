@@ -28,7 +28,7 @@
 
     <asp:SqlDataSource ID="SqlArtwork" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [ArtName], [ArtworkPicture], [ArtDescription],[ArtworkID] FROM [Artwork]"></asp:SqlDataSource>
     <div style="padding:5px">
-        <img src="images/list4.png" alt="banner" style="width:100%;height:auto;"/>
+        <img src="images/list5.png" alt="banner" style="width:100%;height:auto;"/>
     </div>
     <div class="row" style="padding:10px" >
         <div class="col-md-4" >
