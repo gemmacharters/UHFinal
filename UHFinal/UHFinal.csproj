@@ -242,6 +242,7 @@
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Lockout.aspx" />
     <Content Include="Account\Login.aspx" />
+    <Content Include="Account\logo1.png" />
     <Content Include="Account\Manage.aspx" />
     <Content Include="Account\ManageLogins.aspx" />
     <Content Include="Account\ManagePassword.aspx" />
@@ -253,6 +254,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AddArtwork.aspx" />
+    <Content Include="arrows.png" />
     <Content Include="ArtistList.aspx" />
     <Content Include="ArtworkDetail.aspx" />
     <Content Include="ArtworkGallery.aspx" />
@@ -275,6 +277,7 @@
     <Content Include="images\arrows.png" />
     <Content Include="images\list5.png" />
     <Content Include="images\logo1.png" />
+    <Content Include="logo1.png" />
     <Content Include="PostList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -316,6 +319,7 @@
     <Content Include="ShowcaseNews.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ThreadList.aspx" />
+    <Content Include="UserPics\baby.jpg" />
     <Content Include="UserPics\horsehead.jpg" />
     <Content Include="UserPics\minion1.GIF" />
     <Content Include="ViewSwitcher.ascx" />
