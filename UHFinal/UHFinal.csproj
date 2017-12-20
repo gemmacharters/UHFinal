@@ -263,6 +263,7 @@
     <Content Include="Artwork\horsehead.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\killercarousel.css" />
     <Content Include="Content\movingboxes.css" />
     <Content Include="Content\Site.css" />
@@ -286,6 +287,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-11.0.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.easing.1.2.js" />
     <Content Include="Scripts\jquery.justified.js" />
     <Content Include="Scripts\jquery.justified.min.js" />
