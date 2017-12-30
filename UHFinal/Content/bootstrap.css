@@ -4192,11 +4192,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-brand {
-    float: left;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-    color: #ffffff;
+  float: left;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 .navbar-brand:hover,
@@ -4929,14 +4928,13 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-    padding: 30px;
-    margin-bottom: 30px;
-    font-size: 21px;
-    font-weight: 200;
-    line-height: 2.1428571435;
-    color: #2f4f4f;
-    background-color: #ffffff;
-    font-style: italic;
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+  background-color: #eeeeee;
 }
 
 .jumbotron h1 {

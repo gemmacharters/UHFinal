@@ -20,6 +20,10 @@ namespace UHFinal
                             "~/Scripts/WebForms/GridView.js",
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
+                            "~/Scripts/gridify.js",
+                            "~/Scripts/killercarousel.js",
+                            "~/Scripts/jquery.movingboxes.js",
+                            "~/Scripts/jquery.ui.js",
                             "~/Scripts/WebForms/WebParts.js"));
 
             // Order is very important for these files to work, they have explicit dependencies

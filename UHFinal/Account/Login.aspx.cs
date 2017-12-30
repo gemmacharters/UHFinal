@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using UHFinal.Models;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Extensions.Caching;
 
 namespace UHFinal.Account
 {
@@ -20,24 +22,29 @@ namespace UHFinal.Account
             if (!String.IsNullOrEmpty(returnUrl))
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
+            } 
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
             {
-                // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+                ApplicationUser user = signinManager.UserManager.FindByNameAsync(UserName.Text).Result;
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                // user name has been implemented to identify the user and retrieve the Id from the AspNetUsers
+                // A row is added to the UserAccount table which uses the Id field as a foreign key
+
+                var result = signinManager.PasswordSignIn(UserName.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
 
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        // Session variables are set so that the Id can be used without additional calls to the database
+                        Session["UserId"] = user.Id.ToString();
+                        Session["UserName"] = UserName.Text;
+
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -46,8 +53,7 @@ namespace UHFinal.Account
                     case SignInStatus.RequiresVerification:
                         Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
                                                         Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
+                                                        RememberMe.Checked), true);
                         break;
                     case SignInStatus.Failure:
                     default:
@@ -55,7 +61,9 @@ namespace UHFinal.Account
                         ErrorMessage.Visible = true;
                         break;
                 }
+
             }
+
         }
     }
 }
