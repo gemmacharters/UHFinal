@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using UHFinal.Models;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace UHFinal.Account
 {
@@ -54,11 +56,13 @@ namespace UHFinal.Account
                 if (HasPassword(manager))
                 {
                     ChangePassword.Visible = true;
+                    admin.Visible = true;
+                    CheckAdminRights();
                 }
                 else
                 {
-                    CreatePassword.Visible = true;
                     ChangePassword.Visible = false;
+                    admin.Visible = false;
                 }
 
                 // Render success message
@@ -80,6 +84,27 @@ namespace UHFinal.Account
             }
         }
 
+        protected void CheckAdminRights()
+        {
+            string userId = User.Identity.GetUserId();
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand UserSelect = new SqlCommand("SELECT UserID, userStatus FROM UserAccount WHERE(userID = @userId)", conn);
+            UserSelect.Parameters.AddWithValue("userID", userId);
+            conn.Open();
+            SqlDataReader drUS = UserSelect.ExecuteReader();
+            drUS.Read();
+            string UserStatus = drUS["userStatus"].ToString();
+            if (UserStatus == "AD")
+            {
+                approve.Visible = true;
+            }
+            else
+            {
+                approve.Visible = false;
+            }
+            drUS.Close();
+        }
 
         private void AddErrors(IdentityResult result)
         {

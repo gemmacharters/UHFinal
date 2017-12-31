@@ -10,42 +10,33 @@
 namespace UHFinal.Account {
     
     
-    public partial class Manage {
+    public partial class Approval {
         
         /// <summary>
-        /// successMessage control.
+        /// gvUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
+        protected global::System.Web.UI.WebControls.GridView gvUsers;
         
         /// <summary>
-        /// ChangePassword control.
+        /// Approve control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        protected global::System.Web.UI.WebControls.Button Approve;
         
         /// <summary>
-        /// admin control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink admin;
-        
-        /// <summary>
-        /// approve control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink approve;
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

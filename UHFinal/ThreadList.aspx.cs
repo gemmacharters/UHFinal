@@ -44,11 +44,8 @@ namespace UHFinal
                     gvThreads.DataSource = dt;
                     gvThreads.DataBind();
                 }
-            }
-
-
-                
-            
+                conn.Close();
+            } 
         }
     }
 }

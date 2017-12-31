@@ -32,7 +32,7 @@
     </div>
     <div class="row" style="padding:10px" >
         <div class="col-md-4" >
-            <h2>Welcome</h2>
+            <h2>Welcome To You</h2>
             <p>
                 This website is for the City of Liverpool College UAL Character Art students. 
             Once registered as an artist you will be able to upload up to 10 pieces of artwork. 

@@ -61,7 +61,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ArtistIntro" CssClass="col-md-2 control-label" ID="lblInfo" Visible="True">Please enter information about yourself as an artist</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" Height="121px" Width="402px" />
+                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" TextMode="MultiLine" Width="265px" />
             </div>
         </div>
         <div class="form-group">
