@@ -28,7 +28,7 @@ namespace UHFinal.Account
             //Selecting pending users so that the admin person can approve them..
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
-            SqlCommand UserSelect = new SqlCommand("SELECT AspNetUsers.Id, AspNetUsers.UserName, UserAccount.UserPicture, UserAccount.userStatus, UserAccount.ArtistIntro" +
+            SqlCommand UserSelect = new SqlCommand("SELECT AspNetUsers.Id, AspNetUsers.UserName, UserAccount.UserID, UserAccount.UserPicture, UserAccount.userStatus, UserAccount.ArtistIntro" +
                     " FROM AspNetUsers INNER JOIN UserAccount ON AspNetUsers.Id = UserAccount.UserID WHERE(UserAccount.userStatus = 'AP' OR UserAccount.userStatus = 'UP')", conn);
             
             using (SqlDataAdapter sda = new SqlDataAdapter())
@@ -56,9 +56,11 @@ namespace UHFinal.Account
 
             foreach (GridViewRow row in gvUsers.Rows)
             {
-                var userID = row.Cells[0];
+                HiddenField hdUserID = (HiddenField)row.FindControl("UserID");
+                String userID = hdUserID.Value.ToString();
                 var chk = (CheckBox)row.FindControl("ApproveUser");
-                var status = row.Cells[3].ToString();
+                var status = row.Cells[3].Text;
+                
 
                 if (chk != null && chk.Checked)
                 {
@@ -77,6 +79,7 @@ namespace UHFinal.Account
                         lblError.Text = "Error: " + ex.Message;
                     }
                     conn.Close();
+                    Response.Redirect("Approval.aspx");
                 }
             }
         }

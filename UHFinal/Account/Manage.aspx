@@ -19,17 +19,18 @@
                 <dl class="dl-horizontal">
                     <dt>Password:</dt>
                     <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
+                        <asp:HyperLink NavigateUrl="ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
 
                     </dd>
                     
                     <dt>Edit Profile:</dt>
                     <dd>
-                        <asp:HyperLink NavigateUrl="/Account/Admin" Text="[Change]" Visible="false" ID="admin" runat="server" />
+                        <asp:HyperLink NavigateUrl="Admin" Text="[Change]" Visible="false" ID="admin" runat="server" />
                     </dd>
-
+                    <dt>
+                        <asp:Label ID="approvalLabel" runat="server" Text="Approval:" Visible="false"></asp:Label></dt>
                     <dd>
-                        <asp:HyperLink NavigateUrl="/Account/Approval" Text="Administrator Only [Approve Users]" Visible="false" ID="approve" runat="server" />
+                        <asp:HyperLink NavigateUrl="Approval" Text="Administrator Only [Approve Users]" Visible="false" ID="approve" runat="server" />
                     </dd>
                 </dl>
             </div>

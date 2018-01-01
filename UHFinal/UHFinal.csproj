@@ -262,7 +262,6 @@
     <Content Include="ArtworkGallery.aspx" />
     <Content Include="ArtworkList.aspx" />
     <Content Include="ArtworkSearch.aspx" />
-    <Content Include="Artwork\horsehead.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery-ui.css" />
@@ -323,8 +322,6 @@
     <Content Include="ShowcaseNews.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ThreadList.aspx" />
-    <Content Include="UserPics\baby.jpg" />
-    <Content Include="UserPics\horsehead.jpg" />
     <Content Include="UserPics\minion1.GIF" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -564,6 +561,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Artwork\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

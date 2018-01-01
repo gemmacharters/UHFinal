@@ -98,10 +98,12 @@ namespace UHFinal.Account
             if (UserStatus == "AD")
             {
                 approve.Visible = true;
+                approvalLabel.Visible = true;
             }
             else
             {
                 approve.Visible = false;
+                approvalLabel.Visible = false;
             }
             drUS.Close();
         }

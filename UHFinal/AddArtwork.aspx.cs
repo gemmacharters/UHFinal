@@ -21,7 +21,7 @@ namespace UHFinal
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string fileUp = fupArtwork.FileName;
-            string ArtworkFolder = Server.MapPath("/Artwork");
+            string ArtworkFolder = Server.MapPath(path:"/Artwork");
             string userId = User.Identity.GetUserId(); 
             if (fupArtwork.HasFile)
             {
