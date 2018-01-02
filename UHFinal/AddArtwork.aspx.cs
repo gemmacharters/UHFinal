@@ -20,18 +20,20 @@ namespace UHFinal
         }
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string fileUp = fupArtwork.FileName;
-            string ArtworkFolder = Server.MapPath(path:"/Artwork");
+
+            string ArtworkFolder = Server.MapPath(path:"~/Artwork/");
             string userId = User.Identity.GetUserId(); 
             if (fupArtwork.HasFile)
             {
                 try
                 {
-                    fupArtwork.SaveAs(ArtworkFolder + "/" + fileUp);
+
+                    fupArtwork.PostedFile.SaveAs(ArtworkFolder + fupArtwork.FileName);
                 }
                 catch (Exception ex)
                 {
                     lblError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                    return;
                 }
             }
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;

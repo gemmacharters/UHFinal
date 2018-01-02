@@ -24,12 +24,12 @@ namespace UHFinal.Account
                 //Insert a UserAccount record to save the additional details.
                 //Also sets the userStatus. AP or UP, Artist Pending or User Pending
                 string fileUp = UserPicture.FileName;
-                string ArtworkFolder = Server.MapPath(path:"/UserPics");
+                string UserFolder = Server.MapPath(path:"~/UserPics/");
                 if (UserPicture.HasFile)
                 {
                     try
-                    {
-                        UserPicture.SaveAs(ArtworkFolder + "/" + fileUp);
+                    { 
+                        UserPicture.PostedFile.SaveAs(UserFolder + UserPicture.FileName);
 
                     }
                     catch (Exception ex)

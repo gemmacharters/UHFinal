@@ -321,6 +321,7 @@
     <Content Include="Showcase.aspx" />
     <Content Include="ShowcaseNews.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="test1.aspx" />
     <Content Include="ThreadList.aspx" />
     <Content Include="UserPics\minion1.GIF" />
     <Content Include="ViewSwitcher.ascx" />
@@ -544,6 +545,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="test1.aspx.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test1.aspx.designer.cs">
+      <DependentUpon>test1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ThreadList.aspx.cs">
       <DependentUpon>ThreadList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

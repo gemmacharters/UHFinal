@@ -8,7 +8,8 @@
     }
     </style>
     <div>
-        <h1>Approve Users: Select the pending users you want to approve.</h1>
+        <h3>Approve Users: Select the pending users you want to approve.</h3>
+        <asp:Label ID="NoUsers" runat="server" Text="There are no users to be approved" Visible="false"></asp:Label>
         <asp:GridView ID="gvUsers" runat="server" AutoGenerateColumns="False" AllowSorting="True" AllowPaging="True">
         <Columns>
             
@@ -36,5 +37,5 @@
         </asp:GridView>
         <asp:Button ID="Approve" runat="server" OnClick="Approve_Click" Text="Approve Selected Users" />
     </div>
-    <asp:Label ID="lblError" runat="server" Text="Error"></asp:Label>
+    <asp:Label ID="lblError" runat="server" Text="Error" Visible="false"></asp:Label>
 </asp:Content>

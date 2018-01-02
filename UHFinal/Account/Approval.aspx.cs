@@ -35,13 +35,25 @@ namespace UHFinal.Account
             {
                 sda.SelectCommand = UserSelect;
                 conn.Open();
-                object returnObj = UserSelect.ExecuteNonQuery();
-                using (DataTable dt = new DataTable())
+                
+                
                 {
-                    sda.Fill(dt);
-                    gvUsers.DataSource = dt;
-                    gvUsers.DataBind();
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        if (dt.Rows.Count != 0)
+                        {
+                            gvUsers.DataSource = dt;
+                            gvUsers.DataBind();
+                        }
+                        else
+                        {
+                            NoUsers.Visible = true;
+                            Approve.Visible = false;
+                        }
+                    }
                 }
+                
             }
         }
 
@@ -77,6 +89,7 @@ namespace UHFinal.Account
                     catch (Exception ex)
                     {
                         lblError.Text = "Error: " + ex.Message;
+                        lblError.Visible = true;
                     }
                     conn.Close();
                     Response.Redirect("Approval.aspx");
