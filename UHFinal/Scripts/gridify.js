@@ -77,7 +77,8 @@ Element.prototype.gridify = function (options)
                 var idx = indexOfSmallest(columns);
                 items[i].setAttribute('style', 'width: ' + item_width + 'px; ' +
                     'position: absolute; ' +
-                    'margin: ' + item_margin/2 + 'px; ' +
+                    'margin: ' + item_margin / 2 + 'px; ' +
+                    'border: 2px solid black; ' +
                     'top: ' + (columns[idx] + item_margin/2) +'px; ' +
                     'left: ' + ((item_width + item_margin) * idx + left) + 'px; ' +
                     'transition: ' + transition);

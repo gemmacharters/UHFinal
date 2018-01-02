@@ -11,9 +11,9 @@
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">User Name</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">User Name (max 30 characters)</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
+                <asp:TextBox runat="server" ID="UserName" CssClass="form-control" MaxLength="30" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
                     CssClass="text-danger" ErrorMessage="The user name is required." />
             </div>
@@ -59,9 +59,9 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="ArtistIntro" CssClass="col-md-2 control-label" ID="lblInfo" Visible="True">Please enter information about yourself as an artist</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="ArtistIntro" CssClass="col-md-2 control-label" ID="lblInfo" Visible="True">Please enter information about yourself as an artist (Max 250 characters)</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" TextMode="MultiLine" Width="265px" />
+                <asp:TextBox runat="server" ID="ArtistIntro" CssClass="form-control" Visible="True" TextMode="MultiLine" Width="265px" MaxLength="250" />
             </div>
         </div>
         <div class="form-group">
