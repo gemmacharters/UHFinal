@@ -19,7 +19,16 @@ namespace UHFinal
         {
             if(!this.IsPostBack)
             {
-                this.BindGrid();
+                if (User.IsInRole("AA") || User.IsInRole("UA"))
+                {
+                    this.BindGrid();
+                }
+                else
+                {
+                    gvThreads.Visible = false;
+                    lblAccess.Text = "You need to be an approved Artist or User before viewing threads. Check with the administrator";
+
+                }
             }
         }
 

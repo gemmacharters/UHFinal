@@ -17,7 +17,6 @@
     </div>
     <div class="row" style="padding:10px" >
         <div class="col-md-8" >
-            <div>
                  <asp:GridView ID="gvArtistList" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="SqlArtistList" AllowSorting="True" AllowPaging="True" Width="100%" CellPadding="5">
                     <Columns>
                         <asp:TemplateField HeaderText="Artist Picture">
@@ -34,12 +33,9 @@
                         <asp:BoundField DataField="UserName" HeaderText="Artist Name" SortExpression="UserName">
                         </asp:BoundField>
                         <asp:BoundField DataField="ArtistIntro" HeaderText="Information" >
-
-
                         </asp:BoundField>
                     </Columns>
                 </asp:GridView>
-            </div>
         </div>
         <div class="col-md-4" style="padding-top:30px">
             <h2>Select an Artist</h2>

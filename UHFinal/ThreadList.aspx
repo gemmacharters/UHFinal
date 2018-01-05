@@ -7,20 +7,29 @@
         object-fit: cover;
     }
     </style>
-    <div class="jumbotron">
-        <p>Select a thread to view the posts. If the thread is attached to Artwork then click on the picture to see details of the artwork. Click on the View Posts link to see all posts for the thread. If you want to add a new thread click on the New Thread button.
-        </p>
-    </div> 
-    <div>
-        <asp:GridView ID="gvThreads" runat="server" AutoGenerateColumns="False" AllowSorting="True" AllowPaging="True">
+    <div style="padding:5px">
+        <img src="images/list5.png" alt="banner" style="width:100%;height:auto;"/>
+    </div>
+    <div class="row" style="padding:10px" >
+        <div class="col-md-4" >
+            <h2>Character Art Forum</h2>
+            <p>
+                Select a thread to view posts.  Each artwork posted has a new thread, you can also start your own thread. You can view the artwork by clicking on the picture.
+            <asp:Label ID="lblAccess" runat="server" Text="" ForeColor="Red" Font-Bold="True"></asp:Label>
+            
+            </p>
+        </div>
+        <div class="col-md-8" style="padding-top:30px">
+    
+        <asp:GridView ID="gvThreads" runat="server" AutoGenerateColumns="False" AllowSorting="True" AllowPaging="True" Width="100%" ValidateRequestMode="Inherit" CellPadding="5">
         <Columns>
-            <asp:TemplateField HeaderText="Threads">
+            <asp:TemplateField >
                 <ItemTemplate>
                     <asp:HyperLink runat="server" NavigateUrl='<%# "PostList.aspx?ThreadID=" + Eval("Id") %>' Text="View Posts">
                     </asp:HyperLink>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="Artwork">
                 <ItemTemplate>
                     <asp:HyperLink runat="server" NavigateUrl='<%# "ArtworkDetail.aspx?ArtworkID=" + Eval("ArtworkID") %>'>
                     <img src='<%# Eval("ArtworkPicture") %>'  alt="Artwork Picture" class="imgScale" />
@@ -36,4 +45,5 @@
         </Columns>
         </asp:GridView>        
     </div>
+        </div>
 </asp:Content>

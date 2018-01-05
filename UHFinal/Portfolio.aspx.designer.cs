@@ -10,24 +10,24 @@
 namespace UHFinal {
     
     
-    public partial class ThreadList {
+    public partial class Portfolio {
         
         /// <summary>
-        /// lblAccess control.
+        /// SqlArtwork control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccess;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlArtwork;
         
         /// <summary>
-        /// gvThreads control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvThreads;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

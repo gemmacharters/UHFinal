@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddArtwork.aspx.cs" Inherits="UHFinal.AddArtwork" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    
     <style>
         .itemPadding {
             padding:10px;
@@ -21,7 +22,7 @@
         <div class="col-md-4" >
             <h2>Add your Artwork</h2>
             <p>
-                Upload your artwork, the name will appear on a showcase and the description should be consise. The category reflects how you would like this work to be sorted professionally. Hashtags are more informal and you can add your own hashtag to reflect more precisely the work within its niche.
+                Upload your artwork, the name will appear on a showcase and the description should be concise. The category reflects how you would like this work to be sorted professionally. Hashtags are more informal and you can add your own hashtag to reflect more precisely the work within its niche.
             </p></div>
         <div class="col-md-8" style="padding:30px;border-style:solid;border-width:5px;border-radius:15px;border-color:lightgray">
             <div class="well well-sm">

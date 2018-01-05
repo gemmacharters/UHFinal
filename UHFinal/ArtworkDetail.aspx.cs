@@ -17,10 +17,13 @@ namespace UHFinal
         {
             if (!IsPostBack)
             {
-                if (!User.Identity.IsAuthenticated)
+                
+                if (!User.Identity.IsAuthenticated || (!User.IsInRole("AA") && !User.IsInRole("UA")))
                 {
                     //if no logon then cannot like artwork
-                    chkLike.Visible = false;
+                    chkLike.Checked = false;
+                    chkLike.Enabled = false;
+                    lblLike.Text = "You must be logged in and approved to like an artwork";
                 }
                 else
                 {
@@ -44,7 +47,9 @@ namespace UHFinal
 
                     if (userId == ArtistUserID)
                     {
-                        chkLike.Visible = false;
+                        chkLike.Checked = false;
+                        chkLike.Enabled = false;
+                        lblLike.Text = "You cannot like your own artwork";
                     }
                     else
                     {
@@ -56,6 +61,7 @@ namespace UHFinal
                         if (drLS.HasRows)
                         {
                             chkLike.Checked = true;
+                            lblLike.Text = "You have liked this artwork";
                         }
                         drLS.Close();
                     }
@@ -79,18 +85,23 @@ namespace UHFinal
             {
                 LikesSQL = "DELETE FROM Likes WHERE userID=@userID AND ArtworkID=@ArtworkID";
             }
-            
+
             SqlCommand cmdLikes = new SqlCommand(LikesSQL, conn);
             int ArtworkID = int.Parse(Request.QueryString["ArtworkID"]);
             cmdLikes.Parameters.AddWithValue("ArtworkID", ArtworkID);
             string userId = User.Identity.GetUserId();
             cmdLikes.Parameters.AddWithValue("UserID", userId);
-            conn.Open();
-            cmdLikes.ExecuteNonQuery();
-            conn.Close();
-            
-            
-
+            try { 
+                conn.Open();
+                cmdLikes.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error: " + ex.Message;
+                conn.Close();
+                return;
+            }
+            Response.Redirect("ArtworkDetail.aspx?ArtworkID=" + ArtworkID);
         }
     }
 }

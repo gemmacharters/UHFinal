@@ -24,31 +24,42 @@ namespace UHFinal.Account
                 //Insert a UserAccount record to save the additional details.
                 //Also sets the userStatus. AP or UP, Artist Pending or User Pending
                 string fileUp = UserPicture.FileName;
-                string UserFolder = Server.MapPath(path:"~/UserPics/");
+                string UserFolder = Server.MapPath(path: "~/UserPics/");
                 if (UserPicture.HasFile)
                 {
                     try
-                    { 
+                    {
                         UserPicture.PostedFile.SaveAs(UserFolder + UserPicture.FileName);
 
                     }
                     catch (Exception ex)
                     {
                         lblError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
+                        return;
                     }
                 }
+                // There are two main types of user, the artists and the general users. They are assigned pending roles
+                //The administrator then approves them
+                String ArtistUser = "";
+                if (userStatus.Checked == true)
+                {
+                    ArtistUser = "AP";
+                }
+                else
+                {
+                    ArtistUser = "UP";
+                }
+                
                 string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
                 SqlConnection conn = new SqlConnection(connStr);
                 SqlCommand insert = new SqlCommand("insert into userAccount(UserID, userStatus, UserPicture, ArtistIntro) " +
                     "values(@userId, @userStatus, @UserPicture, @UserIntro)", conn);
+                
+                SqlCommand insert2 = new SqlCommand("insert into AspNetUserRoles(UserId, RoleId) values(@userId, @userStatus)", conn);
                 insert.Parameters.AddWithValue("@userId", user.Id);
-                if (userStatus.Checked == true) { 
-                    insert.Parameters.AddWithValue("@userStatus", "AP");
-                    }
-                else
-                {
-                    insert.Parameters.AddWithValue("@userStatus", "UP");
-                }
+                insert.Parameters.AddWithValue("@userStatus", ArtistUser);
+                insert2.Parameters.AddWithValue("@userId", user.Id);
+                insert2.Parameters.AddWithValue("@userStatus", ArtistUser);
                 insert.Parameters.AddWithValue("@UserPicture", "UserPics/" + UserPicture.FileName);
                 insert.Parameters.AddWithValue("@UserIntro", ArtistIntro.Text);
 
@@ -56,10 +67,12 @@ namespace UHFinal.Account
                 {
                     conn.Open();
                     object returnObj = insert.ExecuteNonQuery();
+                    object returnObj2 = insert2.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-                    lblError.Text = "Error: " + ex.Message;    
+                    lblError.Text = "Error: " + ex.Message;
+                    return;
                 }
                 conn.Close();
 
@@ -74,6 +87,7 @@ namespace UHFinal.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+            
         }
     }
 }

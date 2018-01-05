@@ -87,15 +87,26 @@ namespace UHFinal.Account
         protected void CheckAdminRights()
         {
             string userId = User.Identity.GetUserId();
-            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
-            SqlConnection conn = new SqlConnection(connStr);
-            SqlCommand UserSelect = new SqlCommand("SELECT UserID, userStatus FROM UserAccount WHERE(userID = @userId)", conn);
-            UserSelect.Parameters.AddWithValue("userID", userId);
-            conn.Open();
-            SqlDataReader drUS = UserSelect.ExecuteReader();
-            drUS.Read();
-            string UserStatus = drUS["userStatus"].ToString();
-            if (UserStatus == "AD")
+            //string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
+            //SqlConnection conn = new SqlConnection(connStr);
+            //SqlCommand UserSelect = new SqlCommand("SELECT UserID, userStatus FROM UserAccount WHERE(userID = @userId)", conn);
+            //UserSelect.Parameters.AddWithValue("userID", userId);
+            //conn.Open();
+            //SqlDataReader drUS = UserSelect.ExecuteReader();
+            //drUS.Read();
+            //string UserStatus = drUS["userStatus"].ToString();
+            //if (UserStatus == "AD")
+            //{
+            //    approve.Visible = true;
+            //    approvalLabel.Visible = true;
+            //}
+            //else
+            //{
+            //    approve.Visible = false;
+            //    approvalLabel.Visible = false;
+            //}
+            //drUS.Close();
+            if (User.IsInRole("AD"))
             {
                 approve.Visible = true;
                 approvalLabel.Visible = true;
@@ -105,7 +116,6 @@ namespace UHFinal.Account
                 approve.Visible = false;
                 approvalLabel.Visible = false;
             }
-            drUS.Close();
         }
 
         private void AddErrors(IdentityResult result)
