@@ -322,9 +322,9 @@
     <Content Include="Showcase.aspx" />
     <Content Include="ShowcaseNews.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="test1.aspx" />
     <Content Include="ThreadList.aspx" />
     <Content Include="UserPics\minion1.GIF" />
+    <Content Include="ValidateArtist.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -516,6 +516,7 @@
     <Compile Include="Portfolio.aspx.designer.cs">
       <DependentUpon>Portfolio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PortfolioRequest.cs" />
     <Compile Include="PostList.aspx.cs">
       <DependentUpon>PostList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -553,19 +554,19 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="test1.aspx.cs">
-      <DependentUpon>test1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test1.aspx.designer.cs">
-      <DependentUpon>test1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ThreadList.aspx.cs">
       <DependentUpon>ThreadList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ThreadList.aspx.designer.cs">
       <DependentUpon>ThreadList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidateArtist.aspx.cs">
+      <DependentUpon>ValidateArtist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValidateArtist.aspx.designer.cs">
+      <DependentUpon>ValidateArtist.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

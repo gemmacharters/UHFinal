@@ -40,12 +40,12 @@ namespace UHFinal {
         protected global::System.Web.UI.WebControls.FormView fvUser;
         
         /// <summary>
-        /// gvArtwork control.
+        /// Repeater1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvArtwork;
+        protected global::System.Web.UI.WebControls.Repeater Repeater1;
     }
 }

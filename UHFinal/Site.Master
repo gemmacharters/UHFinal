@@ -57,7 +57,7 @@
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/ArtistList">Artist List</a></li>
                         <li><a runat="server" href="~/ThreadList">Forum</a></li>
-                        <li><a runat="server" href="~/AddArtwork">Manage Portfolio</a></li>
+                        <li><a runat="server" href="~/ValidateArtist">Manage Portfolio</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
