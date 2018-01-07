@@ -62,7 +62,7 @@ namespace UHFinal.Account
             string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand update = new SqlCommand("UPDATE userAccount SET userStatus=@UserStatus WHERE UserID=@userId", conn);
-
+            SqlCommand update2 = new SqlCommand("UPDATE AspNetUserRoles SET RoleId=@UserStatus WHERE UserID=@userId", conn);
             //loop through the gridview to see if check box is selected
             //then update the status of the user
 
@@ -85,6 +85,7 @@ namespace UHFinal.Account
                     {
                         conn.Open();
                         object returnObj = update.ExecuteNonQuery();
+                        object returnObj2 = update2.ExecuteNonQuery();
                     }
                     catch (Exception ex)
                     {

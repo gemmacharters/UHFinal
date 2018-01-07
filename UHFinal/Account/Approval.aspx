@@ -21,7 +21,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Picture">
                 <ItemTemplate>
-                    <img src='/<%# Eval("UserPicture") %>'  alt="User Picture" class="imgScale" />
+                    <img src='../<%# Eval("UserPicture") %>'  alt="User Picture" class="imgScale" />
                     
             
                 </ItemTemplate>
