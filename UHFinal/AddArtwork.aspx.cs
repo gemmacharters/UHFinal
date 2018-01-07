@@ -68,6 +68,15 @@ namespace UHFinal
                             hashtagInsert.ExecuteNonQuery();
                         }
                     }
+                    if (txtAddHashtag.Text != "") {
+                        SqlCommand hashtagnew = new SqlCommand("insert into Hashtag(Hashtag) values(@AddTag) SELECT SCOPE_IDENTITY()", conn);
+                        hashtagnew.Parameters.AddWithValue("@AddTag", txtAddHashtag.Text);
+                        object returnObj2 = hashtagnew.ExecuteScalar();
+                        int newHash = -1;
+                        int.TryParse(returnObj2.ToString(), out newHash);
+                        SqlCommand hashtagInsert2 = new SqlCommand("insert into ARHashtag (ArtworkID, HID) values(" + newid + ", " + newHash + ")", conn);
+                        hashtagInsert2.ExecuteNonQuery();
+                    }
                     string sqlCmd = "insert into Thread (Title, ThreadComment, ArtworkID, UserID) values('" +
                                                                 txtArtName.Text + "', 'New Artwork Added, please comment', " + newid + ", '" + userId + "')";
                     SqlCommand threadInsert = new SqlCommand(sqlCmd, conn);

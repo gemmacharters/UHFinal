@@ -10,6 +10,7 @@
     <link href="Content/killercarousel.css" type="text/css" rel="stylesheet" />
     <link href="Content/movingboxes.css" type="text/css" rel="stylesheet" />
     <link href="Content/jquery-ui.css" type="text/css" rel="stylesheet" />
+    <link href="Content/line.css" type="text/css" rel="stylesheet" />
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -48,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                   <a href="default.aspx" class="navbar-left" style="padding-right:30px"><img src="logo1.png"></a>
+                   <a href="http://www.liv-coll.ac.uk/" class="navbar-left" style="padding-right:30px"><img src="logo1.png"></a>
                     <a class="navbar-brand" runat="server" href="~/" style="color:#FFFFFF;">UAL Character Art Showcase</a>
                 </div>
                 <div class="navbar-collapse collapse">

@@ -40,15 +40,6 @@ namespace UHFinal {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlHashtag;
         
         /// <summary>
-        /// fvUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvUser;
-        
-        /// <summary>
         /// txtArtName control.
         /// </summary>
         /// <remarks>
@@ -101,6 +92,15 @@ namespace UHFinal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList chkHashtag;
+        
+        /// <summary>
+        /// txtAddHashtag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddHashtag;
         
         /// <summary>
         /// btnSubmit control.

@@ -15,7 +15,20 @@ namespace UHFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                if (User.IsInRole("AA") || User.IsInRole("UA"))
+                {
+                    //do nothing
+                }
+                else
+                {
+                    txtPostComment.Visible = false;
+                    btnPost.Visible = false;
+                    lblAccess.Text = "You need to be an approved Artist or User before adding posts. Check with the administrator";
 
+                }
+            }
         }
         protected void btnPost_Click(object sender, EventArgs e)
         {

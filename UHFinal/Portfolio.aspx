@@ -28,7 +28,7 @@
         <div class="col-md-8" >
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" DataKeyNames="ArtworkID" OnPageIndexChanging="GridView1_PageIndexChanging" 
                 OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" 
-                OnRowUpdating="GridView1_RowUpdating" Width="100%">  
+                OnRowUpdating="GridView1_RowUpdating" Width="100%" CellPadding="10" CellSpacing="5">  
                     <Columns>
                         <asp:BoundField DataField="ArtworkID" HeaderText="Artwork ID" Visible="False" />
                         <asp:BoundField DataField="ArtName" HeaderText="Artwork Name" />  

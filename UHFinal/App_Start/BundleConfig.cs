@@ -21,6 +21,7 @@ namespace UHFinal
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
                             "~/Scripts/gridify.js",
+                            "~/Scripts/icheck.js",
                             "~/Scripts/killercarousel.js",
                             "~/Scripts/jquery.movingboxes.js",
                             "~/Scripts/jquery.ui.js",

@@ -30,7 +30,7 @@ namespace UHFinal
                     SqlDataReader dr = countArt.ExecuteReader();
                     dr.Read();
                     int CountofArtwork = Convert.ToInt16(dr["ArtworkCount"]);
-                    lblCount.Text = "You have " + CountofArtwork + "Pieces of artwork uploaded";
+                    lblCount.Text = "You have " + CountofArtwork + " piece(s) of artwork uploaded";
                     if (CountofArtwork == 10)
                     {
                         lblCount.Text = lblCount.Text + ", You cannot add any more unless you delete an existing record from the list on the right.";

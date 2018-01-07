@@ -52,7 +52,7 @@
             These can be liked, rated and commented on by other students and visitors to the site.This is a prototype version of the site.
             </p>
             <h3>Recently added:</h3>
-            <asp:GridView ID="gvrecent" runat="server" AutoGenerateColumns="False" DataKeyNames="ArtworkID" DataSourceID="SqlRecent" AllowSorting="True" AllowPaging="True" Width="100%">
+            <asp:GridView ID="gvrecent" runat="server" AutoGenerateColumns="False" DataKeyNames="ArtworkID" DataSourceID="SqlRecent" AllowSorting="True" AllowPaging="True" Width="100%" CellPadding="10" CellSpacing="3">
                 <Columns>
                     <asp:TemplateField HeaderText="Artwork">
                         <ItemTemplate>
