@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-2">Post Comment</div>
                     <div class="col-md-8"><asp:TextBox ID="txtPostComment" runat="server" Width="600px" MaxLength="300"></asp:TextBox></div>
-                    <div class="col-md-3"><asp:Button ID="btnPost" runat="server" OnClick="btnPost_Click" Text="Post Comment"></asp:Button></div> 
+                    <div class="col-md-2"><asp:Button ID="btnPost" runat="server" OnClick="btnPost_Click" Text="Post Comment"></asp:Button></div> 
                 </div>
             </div>
 

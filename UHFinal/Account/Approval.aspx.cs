@@ -77,23 +77,70 @@ namespace UHFinal.Account
                 if (chk != null && chk.Checked)
                 {
                     update.Parameters.AddWithValue("@userId", userID);
+                    update2.Parameters.AddWithValue("@userId", userID);
                     if (status == "AP") { status = "AA"; }
                     else { status = "UA"; }
 
                     update.Parameters.AddWithValue("@UserStatus", status);
+                    update2.Parameters.AddWithValue("@UserStatus", status);
                     try
                     {
                         conn.Open();
                         object returnObj = update.ExecuteNonQuery();
                         object returnObj2 = update2.ExecuteNonQuery();
+                        conn.Close();
+                        Response.Redirect("Approval.aspx");
                     }
                     catch (Exception ex)
                     {
                         lblError.Text = "Error: " + ex.Message;
                         lblError.Visible = true;
+                        conn.Close();
                     }
-                    conn.Close();
-                    Response.Redirect("Approval.aspx");
+                    
+                }
+            }
+        }
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string connStr = System.Configuration.ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand delete = new SqlCommand("DELETE FROM userAccount  WHERE UserID=@userId", conn);
+            SqlCommand delete2 = new SqlCommand("DELETE FROM AspNetUserRoles WHERE UserID=@userId", conn);
+            SqlCommand delete3 = new SqlCommand("DELETE FROM AspNetUsers WHERE Id=@userId", conn);
+            //loop through the gridview to see if check box is selected
+            //then update the status of the user
+
+            foreach (GridViewRow row in gvUsers.Rows)
+            {
+                HiddenField hdUserID = (HiddenField)row.FindControl("UserID");
+                String userID = hdUserID.Value.ToString();
+                var chk = (CheckBox)row.FindControl("ApproveUser");
+                var status = row.Cells[3].Text;
+
+
+                if (chk != null && chk.Checked)
+                {
+                    delete.Parameters.AddWithValue("@userId", userID);
+                    delete2.Parameters.AddWithValue("@userId", userID);
+                    delete3.Parameters.AddWithValue("@userId", userID);
+
+                    try
+                    {
+                        conn.Open();
+                        object returnObj = delete.ExecuteNonQuery();
+                        object returnObj2 = delete2.ExecuteNonQuery();
+                        object returnObj3 = delete3.ExecuteNonQuery();
+                        conn.Close();
+                        Response.Redirect("Approval.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        lblError.Text = "Error: " + ex.Message;
+                        lblError.Visible = true;
+                        conn.Close();
+                    }
+
                 }
             }
         }

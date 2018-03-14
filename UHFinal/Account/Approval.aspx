@@ -36,6 +36,7 @@
         </Columns>
         </asp:GridView>
         <asp:Button ID="Approve" runat="server" OnClick="Approve_Click" Text="Approve Selected Users" />
+        <asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete Selected Users" />
     </div>
     <asp:Label ID="lblError" runat="server" Text="Error" Visible="false"></asp:Label>
 </asp:Content>

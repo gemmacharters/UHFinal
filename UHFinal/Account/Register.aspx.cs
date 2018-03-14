@@ -34,8 +34,7 @@ namespace UHFinal.Account
                     }
                     catch (Exception ex)
                     {
-                        lblError.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
-                        return;
+                        lblError.Text = "Upload status: The picture file could not be uploaded. The following error occured: " + ex.Message;
                     }
                 }
                 // There are two main types of user, the artists and the general users. They are assigned pending roles
@@ -71,7 +70,7 @@ namespace UHFinal.Account
                 }
                 catch (Exception ex)
                 {
-                    lblError.Text = "Error: " + ex.Message;
+                    lblError.Text = "Serious Error Contact Administrator: " + ex.Message;
                     return;
                 }
                 conn.Close();
