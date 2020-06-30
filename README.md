@@ -1,5 +1,5 @@
 # Introduction
-This website is designed for City of Liverpool College ACL Character Art students. These students work over the year to produce a portfolio of work, and the website is designed so they can showcase their work 
+This website is designed for City of Liverpool College UAL Character Art students. These students work over the year to produce a portfolio of work, and the website is designed so they can showcase their work 
 
 # Getting Started
 This website has been created using Visual Studio 2017 and is written in C# ASP.NET with Windows Forms. Any maintenance to the site will require suitable software.
