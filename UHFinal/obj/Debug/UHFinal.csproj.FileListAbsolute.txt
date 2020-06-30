@@ -59,7 +59,6 @@ C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AI.DependencyCollector
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.AI.Web.xml
-C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.csprojResolveAssemblyReference.cache
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.csproj.CoreCompileInputs.cache
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.dll
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.pdb
@@ -200,3 +199,5 @@ C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Microsoft.Extensions.Primitives.
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\System.Text.Encodings.Web.xml
 C:\Users\Gemma\source\repos\UHFinal\UHFinal\bin\Newtonsoft.Json.xml
+C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.csprojAssemblyReference.cache
+C:\Users\Gemma\source\repos\UHFinal\UHFinal\obj\Debug\UHFinal.csproj.CopyComplete
